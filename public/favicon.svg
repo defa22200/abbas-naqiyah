@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="waxJade" cx="36%" cy="28%" r="78%">
+      <stop offset="0%" stop-color="#CFDECF"/>
+      <stop offset="46%" stop-color="#93A899"/>
+      <stop offset="100%" stop-color="#5E7465"/>
+    </radialGradient>
+    <linearGradient id="jadeGoldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F7EED8"/>
+      <stop offset="45%" stop-color="#E5D3A3"/>
+      <stop offset="100%" stop-color="#9E8043"/>
+    </linearGradient>
+    <radialGradient id="waxStampInner" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#3A463B" stop-opacity="0.28"/>
+      <stop offset="70%" stop-color="#3A463B" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#3A463B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Round celadon wax body -->
+  <circle cx="32" cy="32" r="30" fill="url(#waxJade)"/>
+  <!-- Stamped inner field -->
+  <circle cx="32" cy="32" r="24" fill="url(#waxStampInner)"/>
+  <!-- Gloss -->
+  <ellipse cx="25" cy="21" rx="10" ry="6.5" fill="#FDFCF9" opacity="0.22"/>
+  <!-- Antique-gold rims -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="url(#jadeGoldRim)" stroke-width="1.4"/>
+  <circle cx="32" cy="32" r="24" fill="none" stroke="url(#jadeGoldRim)" stroke-width="0.9" opacity="0.9"/>
+  <circle cx="32" cy="32" r="21" fill="none" stroke="#F7EED8" stroke-width="0.45" stroke-dasharray="1.6 1.4" opacity="0.7"/>
+
+  <!-- A✦N monogram, groom-first, optically centred -->
+  <text
+    x="31.5"
+    y="33.5"
+    text-anchor="middle"
+    dominant-baseline="central"
+    fill="#F7EED8"
+    font-family="'Cormorant Garamond', Georgia, serif"
+    font-size="15"
+    font-weight="600"
+    letter-spacing="0.8"
+  >A✦N</text>
+</svg>
