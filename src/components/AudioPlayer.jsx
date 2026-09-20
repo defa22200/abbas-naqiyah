@@ -41,30 +41,48 @@ export default function AudioPlayer({ autoPlayTrigger }) {
     }, intervalMs);
   };
 
-  const tryStart = () => {
+  // Bulletproof start: never throw on unloaded metadata, never lose the
+  // tap-gesture unlock, retry once on the next tap if autoplay blocks us.
+  // Full volume from the first frame on seal break.
+  const startMusicNow = () => {
     const audio = audioRef.current;
     if (!audio || !audio.paused) return;
-    audio.volume = 0;
-    audio
-      .play()
-      .then(() => {
+    audio.volume = 0.5;
+    try {
+      if (audio.readyState > 0) audio.currentTime = 0;
+    } catch (err) {}
+    const p = audio.play();
+    if (p && p.then) {
+      p.then(() => {
         setIsPlaying(true);
-        fadeTo(audio, 0.5);
-      })
-      .catch(() => {});
+        try {
+          if (audio.currentTime > 0.5) audio.currentTime = 0;
+        } catch (err) {}
+      }).catch(() => {
+        const retry = () => {
+          audio
+            .play()
+            .then(() => {
+              setIsPlaying(true);
+            })
+            .catch(() => {});
+        };
+        window.addEventListener('pointerdown', retry, { once: true });
+      });
+    }
   };
 
-  // Start only on the ceremony gesture — retry on later gestures until playing
+  // Start playback the instant the seal is broken (inside tap gesture)
   useEffect(() => {
-    if (!autoPlayTrigger) return;
-    tryStart();
-    const retry = () => {
-      const audio = audioRef.current;
-      if (audio && audio.paused) tryStart();
-      else window.removeEventListener('pointerdown', retry);
+    window.addEventListener('wedding:card-shown', startMusicNow);
+    return () => {
+      window.removeEventListener('wedding:card-shown', startMusicNow);
     };
-    window.addEventListener('pointerdown', retry);
-    return () => window.removeEventListener('pointerdown', retry);
+  }, []);
+
+  // External trigger fallback (e.g. from App props)
+  useEffect(() => {
+    if (autoPlayTrigger) startMusicNow();
   }, [autoPlayTrigger]);
 
   const toggleSound = (e) => {
@@ -79,7 +97,7 @@ export default function AudioPlayer({ autoPlayTrigger }) {
         setIsPlaying(false);
       }, 220);
     } else {
-      tryStart();
+      startMusicNow();
     }
   };
 
@@ -96,7 +114,7 @@ export default function AudioPlayer({ autoPlayTrigger }) {
       <audio
         ref={audioRef}
         loop
-        preload="none"
+        preload="auto"
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       >

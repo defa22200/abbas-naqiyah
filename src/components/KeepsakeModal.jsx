@@ -134,11 +134,11 @@ export default function KeepsakeModal({ isOpen, onClose }) {
           <GoldMonogram className="text-3xl" glow={false} palette="onLight" />
         </div>
 
-        <div className="relative space-y-1">
-          <h2 className="font-calligraphy not-italic text-5xl sm:text-6xl text-ink font-normal leading-tight">
+        <div className="relative space-y-1 overflow-visible">
+          <h2 className="font-calligraphy not-italic text-5xl sm:text-6xl text-ink font-normal leading-[1.22] py-1.5 px-2 whitespace-nowrap overflow-visible drop-shadow-sm">
             Abbas &amp; Naqiyah
           </h2>
-          <p className="text-[10px] sm:text-xs font-body tracking-[0.2em] uppercase text-ink-muted font-semibold">
+          <p className="font-body uppercase text-ink-muted font-semibold whitespace-nowrap text-[8.5px] min-[390px]:text-[9px] tracking-[0.04em] px-2">
             Two families · Two hearts · One beautiful beginning
           </p>
         </div>
@@ -150,12 +150,12 @@ export default function KeepsakeModal({ isOpen, onClose }) {
         </div>
 
         <div className="relative space-y-1">
-          <p className="font-serif text-xl text-ink font-semibold">The Wedding Reception</p>
-          <p className="font-serif text-base text-ink-soft font-semibold">Saturday, 19 December 2026</p>
-          <p className="font-body text-[10px] sm:text-xs tracking-[0.2em] text-ink-muted uppercase font-semibold">
+          <p className="font-serif text-xl text-ink font-semibold whitespace-nowrap">The Wedding Reception</p>
+          <p className="font-serif text-base text-ink-soft font-semibold whitespace-nowrap">Saturday, 19 December 2026</p>
+          <p className="font-body text-[10px] sm:text-xs tracking-[0.16em] text-ink-muted uppercase font-semibold whitespace-nowrap">
             11 Shehre Rajabul Asab 1448 (Eve) · 8:00 PM
           </p>
-          <p className="font-body text-xs font-semibold text-ink pt-0.5">
+          <p className="font-body text-xs font-semibold text-ink pt-0.5 whitespace-nowrap">
             Dhawan Celebrations · Nagpur
           </p>
         </div>

@@ -103,7 +103,7 @@ export function playWaxSnap() {
  * flap back in 3D, raises the pearl-silk reception card, then floods the frame with
  * warm champagne light before handing off to the invitation.
  */
-export default function EnvelopeCeremony({ onComplete }) {
+export default function EnvelopeCeremony({ onComplete, onCardShow }) {
   const [phase, setPhase] = useState('sealed');
   const [isBurstActive, setIsBurstActive] = useState(false);
   const timersRef = useRef([]);
@@ -158,18 +158,42 @@ export default function EnvelopeCeremony({ onComplete }) {
       }
     }
 
+    // Step 1: Cracking (0ms) - Wax fracture lines glow & gold burst particles erupt
+    // Seal broken = music starts here inside the tap gesture so mobile autoplay never blocks
     setPhase('cracking');
     setIsBurstActive(true);
 
-    advance('opening', 380);    // flap hinges back in 3D
-    advance('rising', 900);     // reception card slides upward into view
-    advance('revealing', 2100); // champagne light flood dissolves the overlay
-    timersRef.current.push(setTimeout(finish, 2950));
+    try {
+      window.dispatchEvent(new CustomEvent('wedding:card-shown'));
+    } catch (err) {}
+    if (onCardShow) {
+      onCardShow();
+    }
+
+    // Step 2: Flap smoothly unhinges in 3D (750ms - allows crack & burst to be fully experienced)
+    advance('opening', 750);
+
+    // Step 3: Card emerges and rises majestically in 3D (1650ms)
+    advance('rising', 1650);
+
+    // Step 4: Card stays serenely displayed for comfortable reading (~4.85 seconds)
+    // Seamless luminous transition begins (6500ms)
+    advance('revealing', 6500);
+
+    // Step 5: Smoothly hand off to main invitation narrative (7400ms)
+    timersRef.current.push(setTimeout(finish, 7400));
   };
 
   // Tap anywhere mid-ceremony to fast-forward (cracking included — no dead taps)
   const handleFastForward = () => {
+    if (phase === 'sealed') return;
     tryFullscreenOnce();
+    try {
+      window.dispatchEvent(new CustomEvent('wedding:card-shown'));
+    } catch (err) {}
+    if (onCardShow) {
+      onCardShow();
+    }
     if (phase === 'cracking' || phase === 'opening' || phase === 'rising') {
       clearTimers();
       setPhase('revealing');
@@ -222,10 +246,10 @@ export default function EnvelopeCeremony({ onComplete }) {
           <div
             style={{
               transform: cardVisible
-                ? 'translate3d(0, -10px, 30px) scale(1.03)'
+                ? 'translate3d(0, -60px, 40px) scale(1.04)'
                 : phase === 'opening'
-                ? 'translate3d(0, 0px, 16px) scale(0.98)'
-                : 'translate3d(0, 0px, 0px) scale(0.95)',
+                ? 'translate3d(0, -12px, 20px) scale(0.98)'
+                : 'translate3d(0, 0px, 0px) scale(0.94)',
               opacity: cardVisible ? 1 : 0,
               transition: 'transform 0.95s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease',
               boxShadow: '0 26px 60px -18px rgba(50, 39, 35, 0.32), 0 0 46px -14px rgba(199, 168, 107, 0.55)',
@@ -247,7 +271,7 @@ export default function EnvelopeCeremony({ onComplete }) {
               <div
                 dir="rtl"
                 lang="ar"
-                className="font-arabic text-2xl sm:text-3xl text-ink font-bold tracking-wide leading-relaxed"
+                className="font-arabic text-2xl sm:text-3xl text-ink font-bold tracking-wide leading-relaxed py-1 overflow-visible"
               >
                 بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
               </div>
@@ -257,38 +281,35 @@ export default function EnvelopeCeremony({ onComplete }) {
             </div>
 
             {/* Monogram + names + title */}
-            <div className="my-4 py-1 relative z-10 space-y-1.5">
+            <div className="my-3 py-1 relative z-10 space-y-1.5 w-full">
               <GoldMonogram className="text-2xl sm:text-3xl" glow={false} palette="onLight" />
 
               <div className="flex items-center justify-center gap-2 mb-1 pt-1">
                 <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold-hairline" />
-                <span className="text-[9px] sm:text-[11px] font-body tracking-[0.3em] uppercase text-sage-deep font-semibold">
+                <span className="text-[9px] sm:text-[11px] font-body tracking-[0.3em] uppercase text-sage-deep font-semibold whitespace-nowrap">
                   The Wedding Reception
                 </span>
                 <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold-hairline" />
               </div>
 
-              <p className="font-calligraphy not-italic text-4xl sm:text-5xl md:text-6xl text-ink tracking-normal font-normal leading-tight px-2">
+              <h1 className="font-calligraphy not-italic text-4xl sm:text-5xl md:text-6xl text-ink tracking-normal font-normal leading-[1.25] px-2 py-1.5 whitespace-nowrap overflow-visible drop-shadow-sm">
                 Abbas &amp; Naqiyah
-              </p>
+              </h1>
 
-              <p className="font-serif italic text-xs sm:text-sm text-ink-soft font-semibold mt-1">
+              <p className="font-serif italic text-[10px] min-[390px]:text-[11px] sm:text-xs text-ink-soft font-semibold mt-1 whitespace-nowrap tracking-tight px-1">
                 Two families · Two hearts · One beautiful beginning
               </p>
             </div>
 
-            {/* Date & venue */}
-            <div className="pb-1 space-y-2 relative z-10">
+            {/* Date & venue on one clean line */}
+            <div className="pb-1 space-y-1.5 relative z-10">
               <div className="flex items-center justify-center gap-2">
                 <span className="h-px w-10 bg-gradient-to-r from-transparent to-gold-hairline" />
                 <span className="text-gold-burnished text-xs">✦</span>
                 <span className="h-px w-10 bg-gradient-to-l from-transparent to-gold-hairline" />
               </div>
-              <p className="font-body text-[11px] sm:text-sm tracking-[0.2em] uppercase text-ink font-semibold">
-                Saturday, 19 December 2026
-              </p>
-              <p className="font-serif italic text-[11px] sm:text-xs text-ink-soft">
-                Dhawan Celebrations · Nagpur
+              <p className="font-body text-xs sm:text-sm tracking-[0.2em] uppercase text-ink font-semibold whitespace-nowrap">
+                Saturday, 19 December 2026 · Nagpur
               </p>
             </div>
           </div>
@@ -298,12 +319,21 @@ export default function EnvelopeCeremony({ onComplete }) {
               ============================================================ */}
           <div
             onClick={phase === 'sealed' ? handleSealTap : undefined}
-            className={`transition-all duration-700 [transform-style:preserve-3d] ${
-              envelopeGone
-                ? 'absolute inset-0 translate-y-10 opacity-0 pointer-events-none'
-                : 'relative w-full h-[256px] sm:h-[300px] cursor-pointer translate-y-0 opacity-100'
+            style={{
+              filter: 'drop-shadow(0 20px 40px rgba(50, 39, 35, 0.24))',
+              transform: phase === 'rising'
+                ? 'translate3d(0, 22px, -15px) scale(0.98)'
+                : phase === 'revealing'
+                ? 'translate3d(0, 42px, -30px) scale(0.92)'
+                : 'translate3d(0, 0px, 0px) scale(1)',
+              opacity: phase === 'revealing' ? 0 : 1,
+              transition: 'transform 0.95s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease-out',
+              transformStyle: 'preserve-3d',
+              zIndex: phase === 'rising' || phase === 'revealing' ? 10 : 25,
+            }}
+            className={`absolute w-full h-[256px] sm:h-[300px] ${
+              phase === 'sealed' ? 'cursor-pointer' : 'pointer-events-none'
             }`}
-            style={{ filter: 'drop-shadow(0 24px 44px rgba(50, 39, 35, 0.26))' }}
           >
             {/* 2A — Envelope back panel with celadon-gold geometric damask lining */}
             <div className="absolute inset-0 rounded-2xl bg-ivory-card border border-gold-hairline/60 overflow-hidden shadow-inner">
@@ -313,29 +343,36 @@ export default function EnvelopeCeremony({ onComplete }) {
 
             {/* 2B — Front pocket flaps meeting at exact centre */}
             <div className="absolute inset-0 pointer-events-none z-20 overflow-hidden rounded-2xl">
-              <svg viewBox="0 0 460 300" className="w-full h-full" preserveAspectRatio="none">
+              <svg viewBox="0 0 460 290" className="w-full h-full" preserveAspectRatio="none">
                 <defs>
-                  <linearGradient id="alabasterPocket" x1="0%" y1="100%" x2="0%" y2="0%">
-                    <stop offset="0%" stopColor="#F1EBE1" />
-                    <stop offset="100%" stopColor="#FDFCF9" />
+                  <linearGradient id="pocketGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="0%" stopColor="#F5EBD8" />
+                    <stop offset="100%" stopColor="#FAF4E8" />
                   </linearGradient>
-                  <linearGradient id="alabasterLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FDFCF9" />
-                    <stop offset="100%" stopColor="#F4EFE6" />
+                  <linearGradient id="leftFlapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#F7F0E2" />
+                    <stop offset="100%" stopColor="#EDE0CC" />
                   </linearGradient>
-                  <linearGradient id="alabasterRight" x1="100%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#FDFCF9" />
-                    <stop offset="100%" stopColor="#F4EFE6" />
+                  <linearGradient id="rightFlapGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#F7F0E2" />
+                    <stop offset="100%" stopColor="#EDE0CC" />
                   </linearGradient>
                 </defs>
 
-                {/* Hairline gold debossed seams */}
-                <polygon points="0,0 230,150 0,300" fill="url(#alabasterLeft)" stroke="#C7A86B" strokeWidth="0.9" strokeOpacity="0.85" />
-                <polygon points="460,0 230,150 460,300" fill="url(#alabasterRight)" stroke="#C7A86B" strokeWidth="0.9" strokeOpacity="0.85" />
-                <polygon points="0,300 460,300 230,150" fill="url(#alabasterPocket)" stroke="#C7A86B" strokeWidth="1.1" strokeOpacity="0.9" />
+                {/* Left side triangle */}
+                <polygon points="0,0 230,145 0,290" fill="url(#leftFlapGrad)" />
+                <polygon points="0,0 230,145 0,290" fill="none" stroke="#C7A86B" strokeWidth="1.2" strokeOpacity="0.8" />
+                <polygon points="2,8 218,145 2,282" fill="none" stroke="#E5D3A3" strokeWidth="0.8" opacity="0.6" />
 
-                <line x1="20" y1="294" x2="225" y2="154" stroke="#E5D3A3" strokeWidth="0.9" opacity="0.9" />
-                <line x1="440" y1="294" x2="235" y2="154" stroke="#E5D3A3" strokeWidth="0.9" opacity="0.9" />
+                {/* Right side triangle */}
+                <polygon points="460,0 230,145 460,290" fill="url(#rightFlapGrad)" />
+                <polygon points="460,0 230,145 460,290" fill="none" stroke="#C7A86B" strokeWidth="1.2" strokeOpacity="0.8" />
+                <polygon points="458,8 242,145 458,282" fill="none" stroke="#E5D3A3" strokeWidth="0.8" opacity="0.6" />
+
+                {/* Bottom flap */}
+                <polygon points="0,290 230,145 460,290" fill="url(#pocketGrad)" />
+                <polygon points="0,290 230,145 460,290" fill="none" stroke="#C7A86B" strokeWidth="1.4" strokeOpacity="0.9" />
+                <polygon points="12,286 230,149 448,286" fill="none" stroke="#E5D3A3" strokeWidth="0.8" opacity="0.75" />
               </svg>
 
               <div className="absolute bottom-3 inset-x-0 flex items-center justify-center opacity-80 pointer-events-none">
@@ -345,7 +382,7 @@ export default function EnvelopeCeremony({ onComplete }) {
               </div>
             </div>
 
-            {/* 2C — 3D hinging top flap */}
+            {/* 2C — 3D hinging top flap with softened Euro-curve apex */}
             <div
               style={{
                 transformOrigin: 'top center',
@@ -360,21 +397,58 @@ export default function EnvelopeCeremony({ onComplete }) {
               {/* Flap face (closed) */}
               <div
                 style={{ backfaceVisibility: 'hidden' }}
-                className="absolute inset-0 w-full h-full [clip-path:polygon(0_0,100%_0,50%_100%)] bg-gradient-to-b from-ivory-soft to-ivory-card shadow-md"
+                className="absolute inset-0 w-full h-full bg-gradient-to-b from-ivory-soft to-ivory-card shadow-md"
               >
-                <svg viewBox="0 0 460 150" className="w-full h-full" preserveAspectRatio="none">
-                  <polygon points="0,0 460,0 230,150" fill="none" stroke="#C7A86B" strokeWidth="1.2" strokeOpacity="0.95" />
-                  <polygon points="12,4 448,4 230,140" fill="none" stroke="#E5D3A3" strokeWidth="0.8" opacity="0.8" />
+                <svg viewBox="0 0 460 145" className="w-full h-full" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="flapFrontGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#FAF4E8" />
+                      <stop offset="60%" stopColor="#F5EBD8" />
+                      <stop offset="100%" stopColor="#EFE3CB" />
+                    </linearGradient>
+                  </defs>
+                  <path 
+                    d="M 0,0 L 0,6 Q 0,16 16,24 L 212,135 Q 230,144 248,135 L 444,24 Q 460,16 460,6 L 460,0 Z" 
+                    fill="url(#flapFrontGrad)" 
+                    stroke="#C7A86B" 
+                    strokeWidth="1.2" 
+                  />
+                  <path 
+                    d="M 16,4 Q 16,14 26,20 L 214,130 Q 230,137 246,130 L 434,20 Q 444,14 444,4" 
+                    fill="none" 
+                    stroke="#E5D3A3" 
+                    strokeWidth="0.8" 
+                    opacity="0.85" 
+                  />
                 </svg>
               </div>
 
-              {/* Flap reverse (celadon-gold damask revealed on opening) */}
+              {/* Flap reverse (revealed on opening) */}
               <div
-                style={{ transform: 'rotateX(180deg)', backfaceVisibility: 'hidden' }}
-                className="absolute inset-0 w-full h-full [clip-path:polygon(0_0,100%_0,50%_100%)] bg-sage-light overflow-hidden shadow-md"
+                style={{ transform: 'rotateY(180deg)', backfaceVisibility: 'hidden' }}
+                className="absolute inset-0 w-full h-full filter drop-shadow-[0_2px_6px_rgba(50,39,35,0.12)]"
               >
-                <div className="absolute inset-0 damask-gold opacity-70" />
-                <div className="absolute inset-0 bg-gradient-to-t from-sage/35 via-transparent to-transparent pointer-events-none" />
+                <svg viewBox="0 0 460 145" className="w-full h-full" preserveAspectRatio="none">
+                  <path 
+                    d="M 0,0 L 0,6 Q 0,16 16,24 L 212,135 Q 230,144 248,135 L 444,24 Q 460,16 460,6 L 460,0 Z" 
+                    fill="#F5EDE1" 
+                    stroke="#C7A86B" 
+                    strokeWidth="1.2" 
+                  />
+                  <path 
+                    d="M 12,3 L 12,8 Q 12,17 24,23 L 212,126 Q 230,134 248,126 L 436,23 Q 448,17 448,8 L 448,3 Z" 
+                    fill="url(#envelopeGoldDamask)" 
+                    stroke="#C7A86B" 
+                    strokeWidth="0.8" 
+                  />
+                  <path 
+                    d="M 18,5 L 18,10 Q 18,17 28,23 L 213,122 Q 230,129 247,122 L 432,23 Q 442,17 442,10 L 442,5" 
+                    fill="none" 
+                    stroke="#E5D3A3" 
+                    strokeWidth="0.7" 
+                    opacity="0.9" 
+                  />
+                </svg>
               </div>
             </div>
 
@@ -387,11 +461,33 @@ export default function EnvelopeCeremony({ onComplete }) {
                 disabled={phase !== 'sealed'}
                 aria-label="Tap the wax seal to open the invitation"
                 className={`group relative p-1 rounded-full transition-all duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-hairline cursor-pointer ${
-                  phase === 'sealed' ? 'hover:scale-105 active:scale-95' : ''
+                  phase === 'sealed' ? 'hover:scale-105 active:scale-95 animate-gentle-pulse' : ''
                 } ${phase === 'cracking' ? 'scale-[1.12]' : ''} ${
                   sealGone ? 'opacity-0 scale-125 pointer-events-none' : ''
                 }`}
               >
+                {/* Expanding shockwave ring on tap */}
+                {phase === 'cracking' && (
+                  <span className="absolute -inset-4 rounded-full border-2 border-gold-bright/80 animate-ping pointer-events-none" />
+                )}
+
+                {/* Natural Organic Wax Smudge Shadow */}
+                <div 
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  style={{
+                    background: 'radial-gradient(circle at 50% 55%, rgba(60, 75, 65, 0.42) 0%, rgba(60, 75, 65, 0.2) 48%, rgba(60, 75, 65, 0.05) 70%, transparent 85%)',
+                    filter: 'blur(10px)',
+                    WebkitFilter: 'blur(10px)',
+                    transform: 'translateY(6px) scale(1.12)',
+                  }}
+                />
+                <div 
+                  className="absolute inset-1.5 rounded-full pointer-events-none"
+                  style={{
+                    boxShadow: '0 8px 22px rgba(45, 60, 50, 0.35), 0 2px 6px rgba(35, 45, 40, 0.22)',
+                  }}
+                />
+
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center">
                   {/* Round celadon wax stamp — symmetric medallion, gold rim */}
                   <svg
@@ -477,23 +573,29 @@ export default function EnvelopeCeremony({ onComplete }) {
           </div>
         </div>
 
-        {/* 4. Action affordance beneath the envelope */}
-        {phase === 'sealed' && (
-          <div className="mt-8 flex flex-col items-center text-center animate-fade-in">
-            <button
-              onClick={handleSealTap}
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-ivory-soft/95 text-ink text-xs sm:text-sm font-medium tracking-[0.22em] uppercase shadow-silk-float hover:scale-105 active:scale-95 transition-all cursor-pointer border border-gold-hairline/80 shadow-gold-inset"
-            >
-              <span className="text-gold-burnished text-xs">✦</span>
-              <span>Tap Seal to Open</span>
-              <span className="text-gold-burnished text-xs">✦</span>
-            </button>
+        {/* 4. Elegant Action Button & Date Label anchored below envelope (zero layout reflow) */}
+        <div 
+          style={{
+            transition: 'opacity 0.5s ease, transform 0.5s ease',
+            opacity: phase === 'sealed' ? 1 : 0,
+            transform: phase === 'sealed' ? 'translateY(0)' : 'translateY(12px)',
+            pointerEvents: phase === 'sealed' ? 'auto' : 'none',
+          }}
+          className="absolute -bottom-20 sm:-bottom-24 inset-x-0 flex flex-col items-center text-center z-20"
+        >
+          <button
+            onClick={handleSealTap}
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-3 rounded-full bg-ivory-soft/95 text-ink text-xs sm:text-sm font-medium tracking-[0.22em] uppercase shadow-silk-float hover:scale-105 active:scale-95 transition-all cursor-pointer border border-gold-hairline/80 shadow-gold-inset"
+          >
+            <span className="text-gold-burnished text-xs">✦</span>
+            <span>Tap Seal to Open</span>
+            <span className="text-gold-burnished text-xs">✦</span>
+          </button>
 
-            <span className="text-[11px] font-body tracking-[0.22em] uppercase text-ink-muted font-medium mt-3">
-              Saturday, 19 December 2026 · Nagpur
-            </span>
-          </div>
-        )}
+          <span className="text-xs font-body tracking-[0.22em] uppercase text-ink-muted font-medium mt-3 whitespace-nowrap">
+            Saturday, 19 December 2026 · Nagpur
+          </span>
+        </div>
       </div>
     </aside>
   );

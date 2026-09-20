@@ -95,14 +95,14 @@ export default function ClosingSection({ onOpenKeepsake }) {
           With Best Compliments From
         </span>
 
-        <div className="relative space-y-2 font-serif text-[15px] sm:text-base md:text-lg text-ink leading-snug">
+        <div className="relative space-y-2 font-serif text-[13.5px] sm:text-[15.5px] text-ink leading-relaxed">
           {COMPLIMENTS.map((line) => (
             <p key={line}>{line}</p>
           ))}
         </div>
 
         <div className="relative pt-4 mt-4 border-t border-gold-hairline/35">
-          <p className="font-body text-[11px] sm:text-xs tracking-[0.28em] text-gold-burnished uppercase font-semibold">
+          <p className="font-body text-[11px] sm:text-xs tracking-[0.24em] text-gold-burnished uppercase font-semibold whitespace-nowrap">
             Together with all relatives &amp; friends
           </p>
         </div>
@@ -123,9 +123,9 @@ export default function ClosingSection({ onOpenKeepsake }) {
           more beautiful.&rdquo;
         </p>
 
-        <div className="relative flex items-center justify-center gap-2 pt-1">
+        <div className="relative flex items-center justify-center gap-2 pt-1 overflow-visible">
           <span className="text-xs text-gold-burnished">✦</span>
-          <span className="font-calligraphy not-italic text-3xl sm:text-4xl text-gold-burnished px-1">
+          <span className="font-calligraphy not-italic text-3xl sm:text-4xl text-gold-burnished px-2 py-1 leading-[1.25] overflow-visible inline-block whitespace-nowrap">
             Abbas &amp; Naqiyah
           </span>
           <span className="text-xs text-gold-burnished">✦</span>
@@ -136,7 +136,7 @@ export default function ClosingSection({ onOpenKeepsake }) {
       <div className="space-y-4">
         <div className="inline-flex items-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-gold-burnished" />
-          <span className="text-[10px] font-body tracking-[0.3em] uppercase text-sage-deep font-semibold">
+          <span className="text-[10px] font-body tracking-[0.3em] uppercase text-sage-deep font-semibold whitespace-nowrap">
             Counting Down To The Reception
           </span>
           <Sparkles className="w-3.5 h-3.5 text-gold-burnished" />
@@ -181,7 +181,7 @@ export default function ClosingSection({ onOpenKeepsake }) {
       {/* 5. Footer */}
       <footer className="pt-6 pb-4">
         <div className="p-6 rounded-[26px] bg-ivory-card border border-gold-hairline/50 shadow-card-soft space-y-3 text-center max-w-md mx-auto">
-          <p className="font-serif text-sm sm:text-base font-semibold text-ink tracking-wide">
+          <p className="font-serif text-sm sm:text-base font-semibold text-ink tracking-wide whitespace-nowrap">
             Saturday, 19 December 2026 · Nagpur, Maharashtra
           </p>
 
@@ -191,7 +191,7 @@ export default function ClosingSection({ onOpenKeepsake }) {
             <span className="h-px w-8 bg-gold-hairline/70" />
           </div>
 
-          <p className="font-serif italic text-xs sm:text-sm text-ink-soft tracking-wide">
+          <p className="font-serif italic text-[10px] min-[390px]:text-[11px] sm:text-xs text-ink-soft tracking-tight whitespace-nowrap">
             Two families · Two hearts · One beautiful beginning
           </p>
         </div>

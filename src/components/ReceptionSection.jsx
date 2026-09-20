@@ -127,16 +127,16 @@ export default function ReceptionSection({ onOpenQr }) {
           </span>
         </div>
 
-        <h3 className="relative z-10 font-serif text-3xl sm:text-4xl text-ivory tracking-tight mb-4 font-normal">
+        <h3 className="relative z-10 font-serif text-3xl sm:text-4xl text-ivory tracking-tight mb-4 font-normal whitespace-nowrap">
           The Wedding Reception
         </h3>
 
         {/* Date block */}
         <div className="mb-6 space-y-1 relative z-10">
-          <p className="font-serif text-xl sm:text-2xl font-semibold text-gold-bright">
+          <p className="font-serif text-xl sm:text-2xl font-semibold text-gold-bright whitespace-nowrap">
             {event.gregorian}
           </p>
-          <p className="text-xs sm:text-sm font-body tracking-wider font-medium text-ivory/70">
+          <p className="text-xs sm:text-sm font-body tracking-wider font-medium text-ivory/70 whitespace-nowrap">
             ✦ {event.hijri}
           </p>
         </div>
@@ -145,10 +145,10 @@ export default function ReceptionSection({ onOpenQr }) {
         <div className="flex items-start gap-3 mb-6 relative z-10">
           <Clock className="w-5 h-5 shrink-0 mt-0.5 text-gold-hairline" />
           <div>
-            <p className="font-serif text-lg sm:text-xl font-semibold text-ivory leading-snug">
+            <p className="font-serif text-lg sm:text-xl font-semibold text-ivory leading-snug whitespace-nowrap">
               {event.timeLabel}
             </p>
-            <p className="font-serif italic text-sm sm:text-base mt-0.5 text-gold-bright/90">
+            <p className="font-serif italic text-sm sm:text-base mt-0.5 text-gold-bright/90 whitespace-nowrap">
               {event.program}
             </p>
           </div>

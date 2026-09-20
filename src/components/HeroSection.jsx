@@ -30,7 +30,7 @@ export default function HeroSection({ onOpenKeepsake }) {
   };
 
   const nameClass =
-    'font-calligraphy not-italic text-6xl sm:text-8xl md:text-9xl tracking-normal font-normal select-none leading-[1.08] text-ink drop-shadow-[0_2px_10px_rgba(50,39,35,0.12)]';
+    'font-calligraphy not-italic text-6xl sm:text-8xl md:text-9xl tracking-normal font-normal select-none leading-[1.22] sm:leading-[1.18] text-ink drop-shadow-[0_2px_10px_rgba(50,39,35,0.12)] overflow-visible inline-block px-4 pt-1 pb-4';
 
   return (
     <section
@@ -76,7 +76,7 @@ export default function HeroSection({ onOpenKeepsake }) {
       </motion.div>
 
       {/* 2. Staggered groom-first name beat */}
-      <div className="w-full max-w-lg mx-auto flex flex-col items-center justify-center">
+      <div className="w-full max-w-lg mx-auto flex flex-col items-center justify-center overflow-visible">
         {/* Groom — Abbas, first */}
         <motion.h1
           initial={{ opacity: 0, y: 26, filter: 'blur(6px)' }}
@@ -92,7 +92,7 @@ export default function HeroSection({ onOpenKeepsake }) {
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="my-1 sm:my-2 flex items-center justify-center gap-3"
+          className="my-0.5 sm:my-1 flex items-center justify-center gap-3 overflow-visible"
         >
           <span className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent via-gold-hairline/60 to-gold-hairline" />
           <span className="font-calligraphy not-italic text-4xl sm:text-5xl text-gold-burnished font-normal px-2">
@@ -101,7 +101,7 @@ export default function HeroSection({ onOpenKeepsake }) {
           <span className="h-px w-12 sm:w-20 bg-gradient-to-l from-transparent via-gold-hairline/60 to-gold-hairline" />
         </motion.div>
 
-        {/* Bride — Naqiyah (p, not h1: one h1 per page) */}
+        {/* Bride — Naqiyah (full descender visible without any clipping) */}
         <motion.p
           initial={{ opacity: 0, y: 26, filter: 'blur(6px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -112,14 +112,20 @@ export default function HeroSection({ onOpenKeepsake }) {
         </motion.p>
       </div>
 
-      {/* 3. Tagline, event and date */}
+      {/* 3. Tagline, event and date — clean single-line presentation */}
       <motion.div
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.0, delay: 1.25, ease: [0.16, 1, 0.3, 1] }}
-        className="mt-7 sm:mt-8 flex flex-col items-center gap-2 text-center px-1 sm:px-4 max-w-lg mx-auto w-full"
+        className="mt-6 sm:mt-8 flex flex-col items-center gap-2 text-center px-1 sm:px-4 max-w-lg mx-auto w-full"
       >
-        <p className="text-[9.5px] min-[360px]:text-[10px] min-[390px]:text-[11px] sm:text-xs font-body tracking-[0.12em] min-[360px]:tracking-[0.16em] sm:tracking-[0.24em] uppercase text-ink-soft font-medium text-balance">
+        <p
+          className="font-body uppercase text-ink-soft font-semibold whitespace-nowrap select-none px-2 text-center"
+          style={{
+            fontSize: 'clamp(8.5px, 2.25vw, 12px)',
+            letterSpacing: 'clamp(0.06em, 0.35vw, 0.18em)',
+          }}
+        >
           Two families · Two hearts · One beautiful beginning
         </p>
 
@@ -129,15 +135,21 @@ export default function HeroSection({ onOpenKeepsake }) {
           <span className="h-px w-8 bg-gold-hairline" />
         </div>
 
-        <p className="text-xs sm:text-sm font-body tracking-[0.28em] uppercase text-sage-deep font-semibold">
+        <p className="text-xs sm:text-sm font-body tracking-[0.28em] uppercase text-sage-deep font-semibold whitespace-nowrap">
           The Wedding Reception
         </p>
 
-        <p className="font-serif text-2xl sm:text-3xl text-ink font-semibold tracking-wide">
+        <p className="font-serif text-2xl sm:text-3xl text-ink font-semibold tracking-wide whitespace-nowrap">
           Saturday, 19 December 2026
         </p>
 
-        <p className="font-body text-[10.5px] sm:text-xs tracking-[0.2em] uppercase text-ink-muted font-medium">
+        <p
+          className="font-body uppercase text-ink-muted font-medium whitespace-nowrap text-center"
+          style={{
+            fontSize: 'clamp(9px, 2.1vw, 12px)',
+            letterSpacing: 'clamp(0.08em, 0.25vw, 0.18em)',
+          }}
+        >
           11 Shehre Rajabul Asab 1448 (Eve) · Nagpur
         </p>
       </motion.div>

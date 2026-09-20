@@ -9,13 +9,10 @@ import { motion } from 'framer-motion';
  * Naqiyah of the Shamim family) on soft celadon mist cards.
  */
 export default function LineageSection() {
-  const nameGold =
-    'font-calligraphy not-italic font-normal bg-gradient-to-b from-gold-hairline via-gold-burnished to-gold-deep bg-clip-text text-transparent';
-
   return (
     <section
       id="lineage"
-      className="py-16 px-4 sm:px-6 max-w-xl mx-auto text-center"
+      className="py-14 px-4 sm:px-6 max-w-xl mx-auto text-center"
       aria-label="Host and family lineage"
     >
       {/* Primary host invitation card — pearl silk with gold filigree */}
@@ -37,73 +34,68 @@ export default function LineageSection() {
         </span>
 
         <div className="relative font-serif text-lg sm:text-xl text-ink leading-relaxed max-w-md mx-auto">
-          <p className="text-2xl sm:text-3xl font-normal mb-1 tracking-wide text-ink">
+          <strong className="font-normal text-ink text-2xl sm:text-3xl block mb-2 tracking-wide font-serif">
             Mr. Shabbar &amp; Mrs. Tasneem Mistry
-          </p>
-          <p className="text-sm sm:text-base leading-relaxed text-ink-soft mt-3">
+          </strong>
+          <p className="text-sm sm:text-base leading-relaxed text-ink-soft">
             cordially request the honour of your presence at the Wedding Reception of their beloved son
           </p>
         </div>
-
-        <div className="relative flex items-center justify-center gap-3 my-5">
-          <span className="h-px w-12 bg-gold-hairline/70" />
-          <span className="text-gold-burnished text-xs">✦</span>
-          <span className="h-px w-12 bg-gold-hairline/70" />
-        </div>
-
-        <p className={`relative text-5xl sm:text-6xl leading-tight ${nameGold}`}>Abbas</p>
-        <p className="relative font-serif italic text-base sm:text-lg text-sage-deep my-1">with</p>
-        <p className={`relative text-5xl sm:text-6xl leading-tight ${nameGold}`}>Naqiyah</p>
-
-        <p className="relative font-serif italic text-sm sm:text-base text-ink-soft mt-4">
-          (Daughter of Mr. Moiz Shamim &amp; Mrs. Ashrafunnisa)
-        </p>
       </motion.div>
 
-      {/* Filigree knot */}
-      <div className="flex items-center justify-center gap-3 my-10">
+      {/* Decorative filigree knot */}
+      <div className="flex items-center justify-center gap-3 my-8">
         <span className="h-px w-16 bg-gradient-to-r from-transparent to-sage/60" />
         <span className="text-gold-burnished text-sm">✦</span>
         <span className="h-px w-16 bg-gradient-to-l from-transparent to-sage/60" />
       </div>
 
-      {/* Parentage — groom first */}
+      {/* Couple Parentage / Lineage Cards with 'weds' in between */}
       <div className="flex flex-col items-center gap-4 text-center">
+        {/* Groom Lineage */}
         <motion.div
-          initial={{ opacity: 0, x: -28 }}
+          initial={{ opacity: 0, x: -25 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full p-6 sm:p-7 rounded-2xl bg-sage-mist border border-gold-hairline/45 shadow-silk-float backdrop-blur-md"
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full p-6 sm:p-7 rounded-2xl bg-sage-mist border border-gold-hairline/45 shadow-silk-float backdrop-blur-md overflow-visible"
         >
           <span className="text-[9px] font-body tracking-[0.3em] uppercase text-sage-deep font-semibold block mb-2">
             The Groom
           </span>
-          <h3 className={`text-5xl sm:text-6xl mb-1 ${nameGold}`}>Abbas</h3>
-          <p className="font-serif italic text-sm sm:text-base text-ink-soft font-medium">
-            (S/o Mr. Shabbar &amp; Mrs. Tasneem Mistry)
+          <h3 className="font-calligraphy not-italic text-5xl sm:text-6xl text-ink mb-1 font-normal leading-[1.2] py-1 px-3 overflow-visible inline-block">
+            Abbas
+          </h3>
+          <p className="font-serif italic text-sm sm:text-base text-ink font-semibold">
+            (S/o Mrs. Tasneem &amp; Mr. Shabbar Mistry)
           </p>
         </motion.div>
 
+        {/* The 'weds' ligature verbatim from card */}
         <div className="my-1 flex items-center justify-center gap-3">
           <span className="h-px w-12 bg-gold-hairline/60" />
-          <span className="font-calligraphy not-italic text-4xl text-gold-burnished font-normal px-2">weds</span>
+          <span className="font-calligraphy not-italic text-4xl text-gold-burnished font-normal px-2">
+            weds
+          </span>
           <span className="h-px w-12 bg-gold-hairline/60" />
         </div>
 
+        {/* Bride Lineage */}
         <motion.div
-          initial={{ opacity: 0, x: 28 }}
+          initial={{ opacity: 0, x: 25 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full p-6 sm:p-7 rounded-2xl bg-sage-mist border border-gold-hairline/45 shadow-silk-float backdrop-blur-md"
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full p-6 sm:p-7 rounded-2xl bg-sage-mist border border-gold-hairline/45 shadow-silk-float backdrop-blur-md overflow-visible"
         >
           <span className="text-[9px] font-body tracking-[0.3em] uppercase text-sage-deep font-semibold block mb-2">
             The Bride
           </span>
-          <h3 className={`text-5xl sm:text-6xl mb-1 ${nameGold}`}>Naqiyah</h3>
-          <p className="font-serif italic text-sm sm:text-base text-ink-soft font-medium">
-            (D/o Mr. Moiz Shamim &amp; Mrs. Ashrafunnisa)
+          <h3 className="font-calligraphy not-italic text-5xl sm:text-6xl text-ink mb-1 font-normal leading-[1.2] py-1 px-3 overflow-visible inline-block">
+            Naqiyah
+          </h3>
+          <p className="font-serif italic text-sm sm:text-base text-ink font-semibold">
+            (D/o Mrs. Ashrafunnisa &amp; Mr. Moiz Shamim)
           </p>
         </motion.div>
       </div>
