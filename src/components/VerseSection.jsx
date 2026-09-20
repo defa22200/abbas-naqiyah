@@ -32,22 +32,21 @@ export default function VerseSection() {
         <span className="h-px w-14 sm:w-20 bg-gradient-to-l from-transparent to-gold-hairline" />
       </div>
 
-      <blockquote className="space-y-7 relative z-10">
+      <blockquote className="space-y-6 relative z-10">
         <div
           dir="rtl"
           lang="ar"
-          className="font-arabic text-2xl sm:text-4xl leading-[2.3] sm:leading-[2.5] tracking-wide font-bold select-all px-2 bg-gradient-to-b from-gold-hairline via-gold-burnished to-gold-deep bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(253,252,249,0.9)]"
+          className="font-arabic text-3xl sm:text-5xl leading-[2.2] tracking-wide font-bold select-all px-2 bg-gradient-to-b from-gold-hairline via-gold-burnished to-gold-deep bg-clip-text text-transparent drop-shadow-[0_1px_1px_rgba(253,252,249,0.9)]"
         >
-          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+          وَخَلَقْنَاكُمْ أَزْوَاجًا
         </div>
 
-        <p className="font-serif italic text-base sm:text-xl text-ink-soft leading-relaxed max-w-lg mx-auto tracking-wide">
-          &ldquo;And among His signs is that He created for you spouses from among yourselves so that
-          you may find tranquility in them; and He placed between you affection and mercy.&rdquo;
+        <p className="font-serif italic text-lg sm:text-2xl text-ink-soft leading-relaxed max-w-lg mx-auto tracking-wide">
+          &ldquo;And We created you in pairs.&rdquo;
         </p>
 
         <footer className="font-body text-[10px] sm:text-xs tracking-[0.3em] uppercase text-sage-deep font-semibold pt-1">
-          Surah Ar-Rum 30:21
+          An-Naba | Verse: 8
         </footer>
       </blockquote>
 

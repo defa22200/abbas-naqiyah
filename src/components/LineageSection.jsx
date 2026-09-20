@@ -34,11 +34,14 @@ export default function LineageSection() {
         </span>
 
         <div className="relative font-serif text-lg sm:text-xl text-ink leading-relaxed max-w-md mx-auto">
-          <strong className="font-normal text-ink text-2xl sm:text-3xl block mb-2 tracking-wide font-serif">
-            Mr. Shabbar &amp; Mrs. Tasneem Mistry
+          <strong className="font-normal text-ink text-2xl sm:text-3xl block mb-1 tracking-wide font-serif">
+            Mrs. Nafisa
           </strong>
+          <span className="text-xs sm:text-sm font-body tracking-wide text-ink-soft block mb-3 font-medium whitespace-nowrap">
+            w/o Late Saifuddin Mistry (Battiwala)
+          </span>
           <p className="text-sm sm:text-base leading-relaxed text-ink-soft">
-            cordially request the honour of your presence at the Wedding Reception of their beloved son
+            request the honour of your gracious presence at the wedding reception of their beloved grandson
           </p>
         </div>
       </motion.div>
@@ -66,8 +69,8 @@ export default function LineageSection() {
           <h3 className="font-calligraphy not-italic text-5xl sm:text-6xl text-ink mb-1 font-normal leading-[1.2] py-1 px-3 overflow-visible inline-block">
             Abbas
           </h3>
-          <p className="font-serif italic text-sm sm:text-base text-ink font-semibold">
-            (S/o Mrs. Tasneem &amp; Mr. Shabbar Mistry)
+          <p className="font-serif italic text-sm sm:text-base text-ink font-semibold whitespace-nowrap">
+            (S/o. Mrs. Tasneem &amp; Mr. Shabbar Mistry)
           </p>
         </motion.div>
 
@@ -94,8 +97,8 @@ export default function LineageSection() {
           <h3 className="font-calligraphy not-italic text-5xl sm:text-6xl text-ink mb-1 font-normal leading-[1.2] py-1 px-3 overflow-visible inline-block">
             Naqiyah
           </h3>
-          <p className="font-serif italic text-sm sm:text-base text-ink font-semibold">
-            (D/o Mrs. Ashrafunnisa &amp; Mr. Moiz Shamim)
+          <p className="font-serif italic text-sm sm:text-base text-ink font-semibold whitespace-nowrap">
+            (D/o. Mrs. Ashrafunnisa &amp; Mr Moiz Shamim)
           </p>
         </motion.div>
       </div>
