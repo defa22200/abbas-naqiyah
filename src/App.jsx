@@ -14,6 +14,7 @@ import StardustRainfall from './components/StardustRainfall';
 import Spatial3DMotionCanvas from './components/Spatial3DMotionCanvas';
 import KeepsakeModal from './components/KeepsakeModal';
 import QrCodeModal from './components/QrCodeModal';
+import DevicePrompt from './components/DevicePrompt';
 import { useScrollStage } from './hooks/useScrollStage';
 import { initSmoothScroll, getLenis } from './lib/smoothScroll';
 import { initScrollChoreography } from './lib/scrollChoreography';
@@ -150,6 +151,9 @@ export default function App() {
 
       {/* Venue QR navigation */}
       <QrCodeModal venue={selectedQrVenue} onClose={() => setSelectedQrVenue(null)} />
+
+      {/* Desktop / Tablet mobile recommendation banner */}
+      <DevicePrompt />
     </div>
   );
 }
