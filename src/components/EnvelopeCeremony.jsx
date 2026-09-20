@@ -286,7 +286,7 @@ export default function EnvelopeCeremony({ onComplete, onCardShow }) {
 
               <div className="flex items-center justify-center gap-2 mb-1 pt-1">
                 <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold-hairline" />
-                <span className="text-[9px] sm:text-[11px] font-body tracking-[0.3em] uppercase text-sage-deep font-semibold whitespace-nowrap">
+                <span className="text-[9px] sm:text-[11px] font-serif tracking-[0.28em] uppercase text-sage-deep font-semibold whitespace-nowrap">
                   The Wedding Reception
                 </span>
                 <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold-hairline" />
@@ -301,15 +301,18 @@ export default function EnvelopeCeremony({ onComplete, onCardShow }) {
               </p>
             </div>
 
-            {/* Date & venue on one clean line */}
-            <div className="pb-1 space-y-1.5 relative z-10">
-              <div className="flex items-center justify-center gap-2">
+            {/* Date & venue on royal card in aesthetic serif */}
+            <div className="pb-1 space-y-1 relative z-10">
+              <div className="flex items-center justify-center gap-2 mb-1">
                 <span className="h-px w-10 bg-gradient-to-r from-transparent to-gold-hairline" />
                 <span className="text-gold-burnished text-xs">✦</span>
                 <span className="h-px w-10 bg-gradient-to-l from-transparent to-gold-hairline" />
               </div>
-              <p className="font-body text-xs sm:text-sm tracking-[0.2em] uppercase text-ink font-semibold whitespace-nowrap">
-                Saturday, 19 December 2026 · Nagpur
+              <p className="font-serif text-base sm:text-lg text-ink font-semibold tracking-wide whitespace-nowrap">
+                Saturday, 19 December 2026
+              </p>
+              <p className="font-serif italic text-xs sm:text-sm text-gold-burnished font-medium tracking-wide whitespace-nowrap">
+                Dhawan Celebrations · Nagpur
               </p>
             </div>
           </div>
@@ -592,7 +595,7 @@ export default function EnvelopeCeremony({ onComplete, onCardShow }) {
             <span className="text-gold-burnished text-xs">✦</span>
           </button>
 
-          <span className="text-xs font-body tracking-[0.22em] uppercase text-ink-muted font-medium mt-3 whitespace-nowrap">
+          <span className="text-xs font-serif tracking-[0.22em] uppercase text-ink-muted font-semibold mt-3 whitespace-nowrap">
             Saturday, 19 December 2026 · Nagpur
           </span>
         </div>
