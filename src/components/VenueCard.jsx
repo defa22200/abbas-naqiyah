@@ -111,20 +111,20 @@ export default function VenueCard({ venue, onOpenQr }) {
           </button>
         </div>
 
-        <div className="grid grid-cols-2 gap-2.5 mt-6">
+        <div className="grid grid-cols-2 gap-2 sm:gap-2.5 mt-6">
           <a
             href={mapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-11 flex items-center justify-center gap-2 px-3 rounded-xl bg-gradient-to-r from-gold-hairline via-gold-bright to-gold-hairline text-ink text-xs sm:text-sm font-semibold tracking-wide shadow-gold-glow hover:brightness-105 active:scale-95 transition-all"
+            className="h-11 flex items-center justify-center gap-1.5 sm:gap-2 px-2 min-[360px]:px-3 rounded-xl bg-gradient-to-r from-gold-hairline via-gold-bright to-gold-hairline text-ink text-[11px] min-[360px]:text-xs sm:text-sm font-semibold tracking-wide shadow-gold-glow hover:brightness-105 active:scale-95 transition-all whitespace-nowrap"
           >
-            <Navigation className="w-4 h-4" />
+            <Navigation className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
             <span>Open in Maps</span>
           </a>
 
           <button
             onClick={handleCopy}
-            className={`h-11 px-3 rounded-xl border text-xs sm:text-sm font-medium flex items-center justify-center gap-1.5 transition-colors active:scale-95 cursor-pointer ${
+            className={`h-11 px-2 min-[360px]:px-3 rounded-xl border text-[11px] min-[360px]:text-xs sm:text-sm font-medium flex items-center justify-center gap-1.5 transition-colors active:scale-95 cursor-pointer whitespace-nowrap ${
               copied
                 ? 'border-sage text-sage-ink bg-sage-light/60 font-semibold'
                 : 'border-gold-hairline/55 text-ink-soft hover:bg-sage-light/40'
@@ -132,12 +132,12 @@ export default function VenueCard({ venue, onOpenQr }) {
           >
             {copied ? (
               <>
-                <Check className="w-4 h-4 text-sage-deep" />
+                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sage-deep shrink-0" />
                 <span>Copied</span>
               </>
             ) : (
               <>
-                <Share2 className="w-4 h-4 text-gold-burnished" />
+                <Share2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gold-burnished shrink-0" />
                 <span>Copy Address</span>
               </>
             )}

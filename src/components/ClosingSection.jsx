@@ -206,8 +206,8 @@ export default function ClosingSection({ onOpenKeepsake }) {
 
       {/* 5. Footer */}
       <footer className="pt-6 pb-4">
-        <div className="p-6 rounded-[26px] bg-ivory-card border border-gold-hairline/50 shadow-card-soft space-y-3 text-center max-w-md mx-auto">
-          <p className="font-serif text-sm sm:text-base font-semibold text-ink tracking-wide whitespace-nowrap">
+        <div className="px-3.5 py-5 sm:p-6 rounded-[26px] bg-ivory-card border border-gold-hairline/50 shadow-card-soft space-y-3 text-center max-w-md mx-auto">
+          <p className="font-serif text-xs min-[360px]:text-sm sm:text-base font-semibold text-ink tracking-wide whitespace-nowrap">
             Saturday, 19 December 2026 · Nagpur, Maharashtra
           </p>
 
@@ -217,7 +217,7 @@ export default function ClosingSection({ onOpenKeepsake }) {
             <span className="h-px w-8 bg-gold-hairline/70" />
           </div>
 
-          <p className="font-serif italic text-[10px] min-[390px]:text-[11px] sm:text-xs text-ink-soft tracking-tight whitespace-nowrap">
+          <p className="font-serif italic text-[9.5px] min-[360px]:text-[10px] min-[390px]:text-[11px] sm:text-xs text-ink-soft tracking-tight whitespace-nowrap">
             Two families · Two hearts · One beautiful beginning
           </p>
         </div>

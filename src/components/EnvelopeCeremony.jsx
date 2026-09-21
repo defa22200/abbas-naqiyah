@@ -255,7 +255,7 @@ export default function EnvelopeCeremony({ onComplete, onCardShow }) {
               boxShadow: '0 26px 60px -18px rgba(50, 39, 35, 0.32), 0 0 46px -14px rgba(199, 168, 107, 0.55)',
               zIndex: 35,
             }}
-            className={`w-full max-w-[352px] sm:max-w-[424px] rounded-[26px] bg-gradient-to-b from-ivory-soft via-ivory to-ivory-deep border border-gold-hairline/75 p-5 sm:p-7 flex flex-col items-center justify-between text-center overflow-hidden ${
+            className={`w-full max-w-[352px] sm:max-w-[424px] rounded-[26px] bg-gradient-to-b from-ivory-soft via-ivory to-ivory-deep border border-gold-hairline/75 px-4 py-5 sm:p-7 flex flex-col items-center justify-between text-center overflow-hidden ${
               cardVisible ? 'relative pointer-events-auto' : 'absolute pointer-events-none'
             }`}
           >
@@ -292,11 +292,11 @@ export default function EnvelopeCeremony({ onComplete, onCardShow }) {
                 <span className="h-px w-8 bg-gradient-to-l from-transparent to-gold-hairline" />
               </div>
 
-              <h1 className="font-calligraphy not-italic text-4xl sm:text-5xl md:text-6xl text-ink tracking-normal font-normal leading-[1.25] px-2 py-1.5 whitespace-nowrap overflow-visible drop-shadow-sm">
+              <h1 className="font-calligraphy not-italic text-3xl min-[360px]:text-4xl sm:text-5xl md:text-6xl text-ink tracking-normal font-normal leading-[1.25] px-2 py-1.5 whitespace-nowrap overflow-visible drop-shadow-sm">
                 Abbas &amp; Naqiyah
               </h1>
 
-              <p className="font-serif italic text-[10px] min-[390px]:text-[11px] sm:text-xs text-ink-soft font-semibold mt-1 whitespace-nowrap tracking-tight px-1">
+              <p className="font-serif italic text-[9.5px] min-[360px]:text-[10px] min-[390px]:text-[11px] sm:text-xs text-ink-soft font-semibold mt-1 whitespace-nowrap tracking-tight px-1">
                 Two families · Two hearts · One beautiful beginning
               </p>
             </div>

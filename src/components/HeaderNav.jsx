@@ -43,14 +43,14 @@ export default function HeaderNav({ activeSection }) {
           <span>Quick Navigation</span>
         </button>
       ) : (
-        <div className="flex items-center gap-1.5 p-1.5 bg-ivory-soft/95 text-ink rounded-full shadow-silk-float backdrop-blur-md border border-gold-hairline/55 max-w-[95vw]">
+        <div className="flex items-center gap-1 min-[360px]:gap-1.5 p-1 min-[360px]:p-1.5 bg-ivory-soft/95 text-ink rounded-full shadow-silk-float backdrop-blur-md border border-gold-hairline/55 max-w-[96vw] overflow-x-auto no-scrollbar">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`px-3 py-1.5 rounded-full text-xs transition-all duration-300 whitespace-nowrap flex items-center gap-1 cursor-pointer ${
+                className={`px-2 min-[370px]:px-3 py-1.5 rounded-full text-[11px] min-[370px]:text-xs transition-all duration-300 whitespace-nowrap flex items-center gap-1 cursor-pointer shrink-0 ${
                   isActive
                     ? 'bg-gradient-to-r from-sage-deep via-sage to-sage-deep text-ivory font-semibold shadow-sm'
                     : 'text-ink-soft hover:text-ink hover:bg-sage-light/60'

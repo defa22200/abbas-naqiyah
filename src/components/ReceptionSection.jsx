@@ -127,13 +127,13 @@ export default function ReceptionSection({ onOpenQr }) {
           </span>
         </div>
 
-        <h3 className="relative z-10 font-serif text-3xl sm:text-4xl text-ivory tracking-tight mb-4 font-normal whitespace-nowrap">
+        <h3 className="relative z-10 font-serif text-2xl min-[360px]:text-3xl sm:text-4xl text-ivory tracking-tight mb-4 font-normal whitespace-nowrap">
           The Wedding Reception
         </h3>
 
         {/* Date block */}
         <div className="mb-6 space-y-1 relative z-10">
-          <p className="font-serif text-xl sm:text-2xl font-semibold text-gold-bright whitespace-nowrap">
+          <p className="font-serif text-lg min-[360px]:text-xl sm:text-2xl font-semibold text-gold-bright whitespace-nowrap">
             {event.gregorian}
           </p>
           <p className="text-xs sm:text-sm font-body tracking-wider font-medium text-ivory/70 whitespace-nowrap">
