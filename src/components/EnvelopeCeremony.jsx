@@ -282,7 +282,7 @@ export default function EnvelopeCeremony({ onComplete, onCardShow }) {
 
             {/* Monogram + names + title */}
             <div className="my-3 py-1 relative z-10 space-y-1.5 w-full">
-              <GoldMonogram className="text-2xl sm:text-3xl" glow={false} palette="onLight" />
+              <GoldMonogram className="w-14 h-11 sm:w-16 sm:h-12 mx-auto" glow={false} palette="onLight" />
 
               <div className="flex items-center justify-center gap-2 mb-1 pt-1">
                 <span className="h-px w-8 bg-gradient-to-r from-transparent to-gold-hairline" />
@@ -552,7 +552,7 @@ export default function EnvelopeCeremony({ onComplete, onCardShow }) {
                   </svg>
 
                   {/* Sculpted antique gold A✦N */}
-                  <GoldMonogram className="relative z-10 text-3xl sm:text-[2.1rem]" palette="onJade" glow={false} />
+                  <GoldMonogram className="relative z-10 w-12 h-10 sm:w-14 sm:h-11" palette="onJade" glow={false} />
 
                   {/* Fracture lines on crack */}
                   {phase === 'cracking' && (

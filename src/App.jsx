@@ -107,7 +107,7 @@ export default function App() {
 
       {/* Narrative. Each act sits on a [data-parallax] wrapper so the scrubbed
           depth offset never fights the transform Framer Motion owns inside. */}
-      <main className="relative z-10 max-w-xl mx-auto pt-6 sm:pt-12 pb-28 sm:pb-32">
+      <main className="relative z-10 max-w-xl mx-auto pt-6 sm:pt-12 pb-40 sm:pb-48">
         <div data-parallax="10">
           <InvocationSection />
         </div>

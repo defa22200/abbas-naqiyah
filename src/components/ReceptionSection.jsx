@@ -93,7 +93,7 @@ export default function ReceptionSection({ onOpenQr }) {
           transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
           transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
-        className="relative rounded-[26px] p-7 sm:p-9 moss-night border border-gold-hairline/50 shadow-moss-float overflow-visible"
+        className="relative rounded-[26px] px-4 py-6 sm:px-8 sm:py-8 moss-night border border-gold-hairline/50 shadow-moss-float overflow-visible"
       >
         {/* Clipped backdrop décor — lives in its own wrapper so the calendar
             popup (below) is never cut off by overflow-hidden. */}

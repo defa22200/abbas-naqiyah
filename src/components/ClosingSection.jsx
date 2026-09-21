@@ -87,22 +87,48 @@ export default function ClosingSection({ onOpenKeepsake }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-        className="relative p-7 sm:p-9 rounded-[26px] bg-gradient-to-b from-ivory-soft via-ivory to-ivory-card border border-gold-hairline/55 shadow-silk-float space-y-4 overflow-hidden"
+        className="relative px-4 py-6 sm:px-8 sm:py-8 rounded-[26px] bg-gradient-to-b from-ivory-soft via-ivory to-ivory-card border border-gold-hairline/55 shadow-silk-float space-y-4 overflow-visible text-center"
       >
-        <div className="absolute inset-0 jali-watermark opacity-25 pointer-events-none" />
+        <div className="absolute inset-0 jali-watermark opacity-25 pointer-events-none rounded-[26px]" />
 
-        <span className="relative text-[10px] sm:text-xs font-body tracking-[0.3em] uppercase text-sage-deep font-semibold block">
+        <span className="relative text-[10px] sm:text-xs font-serif tracking-[0.26em] uppercase text-sage-deep font-semibold block mb-1">
           With Best Compliments From
         </span>
 
-        <div className="relative space-y-2 font-serif text-[13.5px] sm:text-[15.5px] text-ink leading-relaxed">
-          {COMPLIMENTS.map((line) => (
-            <p key={line}>{line}</p>
-          ))}
+        <div className="relative space-y-3 font-serif text-ink">
+          <div className="leading-snug">
+            <p className="text-[13.5px] min-[390px]:text-[15px] sm:text-base font-semibold">
+              Mrs. Rizwana Mistry
+            </p>
+            <p className="text-xs min-[390px]:text-[13px] sm:text-sm text-ink-muted mt-0.5">
+              w/o Late Shabbir Mistry (Battiwala)
+            </p>
+          </div>
+
+          <div className="leading-snug">
+            <p className="text-[13.5px] min-[390px]:text-[15px] sm:text-base font-semibold">
+              Mrs. Zaheda Shakeel Abbas &amp; Shakeel Abbas
+            </p>
+            <p className="text-xs min-[390px]:text-[13px] sm:text-sm text-ink-muted mt-0.5">
+              (Kiranawala)
+            </p>
+          </div>
+
+          <div className="leading-snug">
+            <p className="text-[13.5px] min-[390px]:text-[15px] sm:text-base font-semibold">
+              Mrs. Zainab Sunelwala &amp; Mustufa Sunelwala
+            </p>
+          </div>
+
+          <div className="leading-snug">
+            <p className="text-[13.5px] min-[390px]:text-[15px] sm:text-base font-semibold">
+              Nisreen Mistry
+            </p>
+          </div>
         </div>
 
-        <div className="relative pt-4 mt-4 border-t border-gold-hairline/35">
-          <p className="font-body text-[11px] sm:text-xs tracking-[0.24em] text-gold-burnished uppercase font-semibold whitespace-nowrap">
+        <div className="relative pt-3 mt-3 border-t border-gold-hairline/35">
+          <p className="font-serif text-[10px] min-[380px]:text-[11px] sm:text-xs tracking-[0.14em] sm:tracking-[0.2em] text-gold-burnished uppercase font-semibold whitespace-nowrap text-center block px-1">
             Together with all relatives &amp; friends
           </p>
         </div>
@@ -114,18 +140,18 @@ export default function ClosingSection({ onOpenKeepsake }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.85, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="relative p-8 sm:p-10 rounded-[26px] bg-gradient-to-b from-gold-pale via-ivory-soft to-ivory border border-gold-hairline/55 shadow-silk-float space-y-5 overflow-hidden"
+        className="relative px-5 py-7 sm:px-9 sm:py-9 rounded-[26px] bg-gradient-to-b from-gold-pale via-ivory-soft to-ivory border border-gold-hairline/55 shadow-silk-float space-y-4 overflow-visible text-center"
       >
         <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-40 bg-gold-bright/40 blur-3xl rounded-full pointer-events-none" />
 
-        <p className="relative font-serif italic text-xl sm:text-2xl leading-relaxed text-ink">
+        <p className="relative font-serif italic text-lg sm:text-2xl leading-relaxed text-ink [text-wrap:balance] max-w-md mx-auto">
           &ldquo;Your presence will make our celebration complete; your blessings will make our journey
           more beautiful.&rdquo;
         </p>
 
         <div className="relative flex items-center justify-center gap-2 pt-1 overflow-visible">
           <span className="text-xs text-gold-burnished">✦</span>
-          <span className="font-calligraphy not-italic text-3xl sm:text-4xl text-gold-burnished px-2 py-1 leading-[1.25] overflow-visible inline-block whitespace-nowrap">
+          <span className="font-calligraphy not-italic text-3xl sm:text-4xl text-gold-burnished px-3 py-1 leading-[1.25] overflow-visible inline-block whitespace-nowrap drop-shadow-[0_1px_4px_rgba(201,166,107,0.3)]">
             Abbas &amp; Naqiyah
           </span>
           <span className="text-xs text-gold-burnished">✦</span>

@@ -83,7 +83,7 @@ export default function VenueCard({ venue, onOpenQr }) {
       </div>
 
       {/* Details & actions */}
-      <div className="p-6 sm:p-7">
+      <div className="px-4 py-6 sm:px-7 sm:py-7">
         <div className="flex items-start justify-between gap-4 mb-4">
           <div>
             <span className="text-[10px] font-body tracking-[0.22em] uppercase text-sage-deep font-semibold block mb-1.5">

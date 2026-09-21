@@ -71,7 +71,7 @@ export default function HeroSection({ onOpenKeepsake }) {
           className="relative w-32 h-28 sm:w-40 sm:h-36 flex items-center justify-center"
         >
           <span className="absolute inset-0 bg-gold-bright/40 rounded-full blur-2xl scale-75 animate-crown-glow" />
-          <GoldMonogram className="relative z-10 text-6xl sm:text-7xl" palette="onLight" />
+          <GoldMonogram className="relative z-10 w-28 h-22 sm:w-36 sm:h-28" palette="onLight" />
         </div>
       </motion.div>
 

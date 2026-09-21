@@ -107,7 +107,7 @@ export default function KeepsakeModal({ isOpen, onClose }) {
           transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
           transformStyle: 'preserve-3d',
         }}
-        className="relative w-full max-w-sm rounded-[26px] bg-gradient-to-b from-ivory-soft via-ivory to-ivory-deep text-ink p-7 sm:p-8 shadow-silk-float border border-gold-hairline/70 overflow-hidden text-center"
+        className="relative w-full max-w-sm rounded-[26px] bg-gradient-to-b from-ivory-soft via-ivory to-ivory-deep text-ink px-5 py-6 sm:p-8 shadow-silk-float border border-gold-hairline/70 overflow-hidden text-center"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="absolute inset-0 jali-watermark opacity-25 pointer-events-none" />
@@ -131,7 +131,7 @@ export default function KeepsakeModal({ isOpen, onClose }) {
         </span>
 
         <div className="relative my-3 flex justify-center">
-          <GoldMonogram className="text-3xl" glow={false} palette="onLight" />
+          <GoldMonogram className="w-20 h-16" glow={false} palette="onLight" />
         </div>
 
         <div className="relative space-y-1 overflow-visible">

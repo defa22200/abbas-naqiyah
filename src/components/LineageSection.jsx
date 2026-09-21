@@ -21,7 +21,7 @@ export default function LineageSection() {
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="relative p-6 sm:p-9 rounded-[26px] bg-gradient-to-b from-ivory-soft via-ivory to-ivory-card border border-gold-hairline/60 shadow-silk-float overflow-hidden"
+        className="relative px-4 py-6 sm:p-9 rounded-[26px] bg-gradient-to-b from-ivory-soft via-ivory to-ivory-card border border-gold-hairline/60 shadow-silk-float overflow-hidden"
       >
         <div className="absolute inset-0 jali-watermark opacity-[0.35] pointer-events-none" />
         <div className="absolute top-3 left-3 w-5 h-5 border-t border-l border-gold-hairline/80 pointer-events-none" />
@@ -37,7 +37,7 @@ export default function LineageSection() {
           <strong className="font-normal text-ink text-2xl sm:text-3xl block mb-1 tracking-wide font-serif">
             Mrs. Nafisa
           </strong>
-          <span className="text-xs sm:text-sm font-body tracking-wide text-ink-soft block mb-3 font-medium whitespace-nowrap">
+          <span className="text-[11.5px] min-[360px]:text-xs sm:text-sm font-body tracking-wide text-ink-soft block mb-3 font-medium whitespace-nowrap">
             w/o Late Saifuddin Mistry (Battiwala)
           </span>
           <p className="text-sm sm:text-base leading-relaxed text-ink-soft">
@@ -61,7 +61,7 @@ export default function LineageSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full p-6 sm:p-7 rounded-2xl bg-sage-mist border border-gold-hairline/45 shadow-silk-float backdrop-blur-md overflow-visible"
+          className="w-full px-4 py-6 sm:p-7 rounded-2xl bg-sage-mist border border-gold-hairline/45 shadow-silk-float backdrop-blur-md overflow-visible"
         >
           <span className="text-[9px] font-body tracking-[0.3em] uppercase text-sage-deep font-semibold block mb-2">
             The Groom
@@ -69,7 +69,7 @@ export default function LineageSection() {
           <h3 className="font-calligraphy not-italic text-5xl sm:text-6xl text-ink mb-1 font-normal leading-[1.2] py-1 px-3 overflow-visible inline-block">
             Abbas
           </h3>
-          <p className="font-serif italic text-sm sm:text-base text-ink font-semibold whitespace-nowrap">
+          <p className="font-serif italic text-xs min-[360px]:text-sm sm:text-base text-ink font-semibold whitespace-nowrap">
             (S/o. Mrs. Tasneem &amp; Mr. Shabbar Mistry)
           </p>
         </motion.div>
@@ -89,7 +89,7 @@ export default function LineageSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full p-6 sm:p-7 rounded-2xl bg-sage-mist border border-gold-hairline/45 shadow-silk-float backdrop-blur-md overflow-visible"
+          className="w-full px-4 py-6 sm:p-7 rounded-2xl bg-sage-mist border border-gold-hairline/45 shadow-silk-float backdrop-blur-md overflow-visible"
         >
           <span className="text-[9px] font-body tracking-[0.3em] uppercase text-sage-deep font-semibold block mb-2">
             The Bride
@@ -97,7 +97,7 @@ export default function LineageSection() {
           <h3 className="font-calligraphy not-italic text-5xl sm:text-6xl text-ink mb-1 font-normal leading-[1.2] py-1 px-3 overflow-visible inline-block">
             Naqiyah
           </h3>
-          <p className="font-serif italic text-sm sm:text-base text-ink font-semibold whitespace-nowrap">
+          <p className="font-serif italic text-xs min-[360px]:text-sm sm:text-base text-ink font-semibold whitespace-nowrap">
             (D/o. Mrs. Ashrafunnisa &amp; Mr Moiz Shamim)
           </p>
         </motion.div>
