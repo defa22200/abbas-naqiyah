@@ -3,7 +3,7 @@ import { VolumeX, Music, Maximize, Minimize } from 'lucide-react';
 import { toggleFullscreen, isFullscreenActive } from '../utils/fullscreen';
 
 /**
- * AudioPlayer — ambient Sufiyana oud, started only after the seal tap gesture.
+ * AudioPlayer — ambient background music, started only after the seal tap gesture.
  * Nothing autoplays on mount (no wasted bandwidth, no blocked-play warnings):
  * the envelope ceremony flips `autoPlayTrigger`, then we fade in. If the play
  * is still blocked, every pointerdown retries until it succeeds.
@@ -118,8 +118,8 @@ export default function AudioPlayer({ autoPlayTrigger }) {
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       >
-        <source src="/audio/sufi_oud_long.m4a" type="audio/mp4" />
-        <source src="/audio/sufi_oud_long.mp3" type="audio/mpeg" />
+        <source src="/audio/invitation_bgm.m4a" type="audio/mp4" />
+        <source src="/audio/invitation_bgm.mp3" type="audio/mpeg" />
       </audio>
 
       {/* Fullscreen toggle */}
@@ -150,8 +150,8 @@ export default function AudioPlayer({ autoPlayTrigger }) {
         className={`group relative flex items-center gap-2 py-2 px-3 sm:px-3.5 rounded-full transition-all duration-300 backdrop-blur-md shadow-silk-float active:scale-95 cursor-pointer ${
           isPlaying ? activeButton : idleButton
         }`}
-        aria-label={isPlaying ? 'Mute the Sufiyana oud' : 'Play the Sufiyana oud'}
-        title={isPlaying ? 'Mute the Sufiyana oud' : 'Play the Sufiyana oud'}
+        aria-label={isPlaying ? 'Mute the background music' : 'Play the background music'}
+        title={isPlaying ? 'Mute the background music' : 'Play the background music'}
       >
         {isPlaying ? (
           <>
